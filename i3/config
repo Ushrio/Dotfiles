@@ -24,8 +24,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+d exec --no-startup-id rofi -show run
 
-# start up google chrome
-bindsym $mod+F2 exec google-chrome
+# start up firefox
+bindsym $mod+F2 exec firefox
 
 # change focus
 bindsym $mod+h focus left
@@ -179,9 +179,12 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Autostart applications
-exec --no-startup-id feh --bg-scale $HOME/Pictures/Cowboy-Bebop-Wallpaper-Wide-Desktop.jpg
+# Autostart wallpaper
+exec --no-startup-id feh --bg-scale $HOME/Pictures/cowboy_bebop.jpg
+# Autostart polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# Autostart script to set monitors correctly
+exec_always --no-startup-id $HOME/.screenlayout/arandr_startup.sh
 
 # Theme colors
 client.focused #EAD49B #1E272B #EAD49B #9D6A47 #9D6A47
