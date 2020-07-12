@@ -116,8 +116,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Create a function that grabs the current git branch for git repos
 git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
+# Export a custom status line for bash
 export PS1="[\u@\h \W]\[\033[00;32m\]\$(git_branch)\[\033[00m\]\$ "
+
+# Add completion for the kitty command
+source <(kitty + complete setup bash)
+

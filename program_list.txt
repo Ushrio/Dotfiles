@@ -1,0 +1,14 @@
+kitty
+compton
+i3
+polybar
+rofi
+spotify
+vim
+gvim
+Intellij
+Firefox
+Arandr
+Grubcustomizer
+lxpolykit
+tmux
