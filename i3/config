@@ -184,8 +184,8 @@ mode "$mode_resize" {
 }
 set $mode_resize Resize mode enabled
 
-# Autostart wallpaper
-exec --no-startup-id feh --bg-scale $HOME/Pictures/cowboy_bebop.jpg
+# Autostart feh and use it to set the wallpaper
+exec --no-startup-id feh --bg-center $HOME/Pictures/Wallpapers/War_2.jpg
 # Autostart polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Autostart script to set monitors correctly
@@ -194,6 +194,8 @@ exec_always --no-startup-id $HOME/.screenlayout/arandr_startup.sh
 exec_always --no-startup-id /usr/bin/lxpolkit
 # Start compton for transparency
 exec_always --no-startup-id /usr/bin/compton
+# set power-manager and volume control
+exec --no-startup-id mate-power-manager
 
 # Theme colors
 client.focused #EAD49B #1E272B #EAD49B #9D6A47 #9D6A47
@@ -246,9 +248,6 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-# set power-manager and volume control
-exec --no-startup-id mate-power-manager
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db- unmute
