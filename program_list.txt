@@ -12,3 +12,10 @@ Arandr
 Grubcustomizer
 lxpolykit
 tmux
+clangd
+llvm
+openjdk
+nodejs
+wifidriver
+universal ctags
+

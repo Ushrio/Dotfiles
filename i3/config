@@ -28,8 +28,8 @@ bindsym $mod+Shift+d exec --no-startup-id rofi -show run
 # start up firefox
 bindsym $mod+F2 exec firefox
 
-# start up Nautilus
-bindsym $mod+F1 exec nautilus
+# start up Ranger in kitty
+bindsym $mod+F1 exec kitty "ranger"
 
 # change focus
 bindsym $mod+h focus left
@@ -193,9 +193,11 @@ exec_always --no-startup-id $HOME/.screenlayout/arandr_startup.sh
 # Exec the policy kit for verification if needed
 exec_always --no-startup-id /usr/bin/lxpolkit
 # Start compton for transparency
-exec_always --no-startup-id /usr/bin/compton
+exec_always --no-startup-id /usr/bin/compton --config ~/Ubuntu-Config/compton/compton.conf -b
 # set power-manager and volume control
 exec --no-startup-id mate-power-manager
+# set notification daemon
+exec --no-startup-id dunst
 
 # Theme colors
 client.focused #EAD49B #1E272B #EAD49B #9D6A47 #9D6A47

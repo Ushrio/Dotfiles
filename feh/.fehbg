@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-center '/home/greg/Pictures/Wallpapers/War_2.jpg' 
