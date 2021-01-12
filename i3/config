@@ -31,6 +31,9 @@ bindsym $mod+F2 exec firefox
 # start up Ranger in kitty
 bindsym $mod+F1 exec kitty "ranger"
 
+# start up Gvim
+bindsym $mod+F3 exec gvim
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -198,6 +201,8 @@ exec_always --no-startup-id /usr/bin/compton --config ~/Ubuntu-Config/compton/co
 exec --no-startup-id mate-power-manager
 # set notification daemon
 exec --no-startup-id dunst
+# startup rclone and mount Onedrive
+exec --no-startup-id sh -c "rclone --vfs-cache-mode writes mount 'OneDrive - Wichita State University': ~/'OneDrive - Wichita State University'"
 
 # Theme colors
 client.focused #EAD49B #1E272B #EAD49B #9D6A47 #9D6A47
