@@ -127,3 +127,5 @@ export PS1="[\u@\h \W]\[\033[00;32m\]\$(git_branch)\[\033[00m\]\$ "
 # Add completion for the kitty command
 source <(kitty + complete setup bash)
 
+# Allows pyWal's newly generated colorschemes to be seen in new terminals (Still resets at reboot)
+(cat ~/.cache/wal/sequences &)

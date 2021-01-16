@@ -203,21 +203,15 @@ exec --no-startup-id mate-power-manager
 exec --no-startup-id dunst
 # startup rclone and mount Onedrive
 exec --no-startup-id sh -c "rclone --vfs-cache-mode writes mount 'OneDrive - Wichita State University': ~/'OneDrive - Wichita State University'"
-# load up the last pyWal colorscheme that was in use
-exec --no-startup-id wal -R
 
-# Get colors from Xresource file that is set by pyWal
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
 
-# class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
-
-client.background       $bg
+# Theme colors
+client.focused #EAD49B #1E272B #EAD49B #9D6A47 #9D6A47
+client.focused_inactive #EAD49B #1E272B #EAD49B #78824B #78824B
+client.unfocused #EAD49B #1E272B #EAD49B #78824B #78824B
+client.urgent #EAD49B #1E272B #EAD49B #78824B #78824B
+client.placeholder #EAD49B #1E272B #EAD49B #78824B #78824B
+client.background #1E272B
 
 # Gaps
 gaps inner 10
