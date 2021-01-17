@@ -187,25 +187,6 @@ mode "$mode_resize" {
 }
 set $mode_resize Resize mode enabled
 
-# Autostart feh and use it to set the wallpaper
-exec --no-startup-id feh --bg-center $HOME/Pictures/Wallpapers/War_2.jpg
-# Autostart polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# Autostart script to set monitors correctly
-exec_always --no-startup-id $HOME/.screenlayout/arandr_startup.sh
-# Exec the policy kit for verification if needed
-exec_always --no-startup-id /usr/bin/lxpolkit
-# Start compton for transparency
-exec_always --no-startup-id /usr/bin/compton --config ~/Ubuntu-Config/compton/compton.conf -b
-# set power-manager and volume control
-exec --no-startup-id mate-power-manager
-# set notification daemon
-exec --no-startup-id dunst
-# startup rclone and mount Onedrive
-exec --no-startup-id sh -c "rclone --vfs-cache-mode writes mount 'OneDrive - Wichita State University': ~/'OneDrive - Wichita State University'"
-# load up the last pyWal colorscheme that was in use
-exec --no-startup-id wal -R
-
 # Get colors from Xresource file that is set by pyWal
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
@@ -269,3 +250,13 @@ bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 # touchpad on and off controller on laptop with Fn+<touchpad control functional key>
 bindsym XF86TouchpadOn exec --no-startup-id synclient Touchpadoff=0
 bindsym XF86TouchpadOff exec --no-startup-id synclient Touchpadoff=1
+
+# Autostart the following applications
+# Set monitors correctly
+exec_always --no-startup-id $HOME/Ubuntu-Config/.screenlayout/arandr_startup.sh
+# Status bar
+exec_always --no-startup-id $HOME/Ubuntu-Config/polybar/launch.sh
+# Compositor for transparency
+exec_always --no-startup-id /usr/bin/compton --config $HOME/Ubuntu-Config/compton/compton.conf -b
+# Rclone to mount OneDrive
+exec_always --no-startup-id sh -c "rclone --vfs-cache-mode writes mount 'OneDrive - Wichita State University': $HOME/'OneDrive - Wichita State University'"
