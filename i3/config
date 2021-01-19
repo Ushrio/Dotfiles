@@ -1,16 +1,20 @@
 # Set the mod key to the windows key
 set $mod Mod4
 
-new_window pixel 1
-new_float normal
+# set the default window edge pixel width
+default_border pixel 2
+# set the default window edge for floating windows
+default_floating_border pixel 2
 
+# do not hide any edge borders
 hide_edge_borders none
 
 # Change the look of the borders of windows
 bindsym $mod+u border none
-bindsym $mod+y border pixel 1
+bindsym $mod+y border pixel 2
 bindsym $mod+n border normal
 
+# Set font
 font xft:firacode 11
 
 floating_modifier $mod
@@ -59,26 +63,27 @@ bindsym $mod+Shift+Right move right
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
 bindsym $mod+b workspace back_and_forth
+# move focused window back and forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
-# split orientation
-bindsym $mod+Ctrl+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+Ctrl+v split v;exec notify-send 'tile vertically'
+# change the next windows orientation
+bindsym $mod+Ctrl+h split h;exec notify-send 'Tile Horizontally'
+bindsym $mod+Ctrl+v split v;exec notify-send 'Tile Vertically'
 bindsym $mod+Ctrl+q split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+s layout stacking;exec notify-send 'Stacking Layout'
+bindsym $mod+w layout tabbed;exec notify-send 'Tabbed Layout'
+bindsym $mod+e layout toggle split;exec notify-send 'Split Layout (Default)'
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+space floating toggle;exec notify-send 'Floating Layout'
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+space focus mode_toggle
 
 # toggle sticky
 #bindsym $mod+Shift+s sticky toggle
@@ -139,31 +144,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec exit
-
-# shutdown i3
-bindsym $mod+Shift+s exec shutdown now
-
-# Set shut down, restart and locking features
-bindsym $mod+0 mode "$mode_system"
-mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-set $mode_system System (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-
 # Resize window (you can also use the mouse for that)
-bindsym $mod+r mode "$mode_resize"
+bindsym $mod+r mode "$mode_resize";exec notify-send 'Resize Mode Active'
 mode "$mode_resize" {
         # These bindings trigger as soon as you enter the resize mode
         # Pressing left will shrink the window’s width.
@@ -182,8 +164,9 @@ mode "$mode_resize" {
         bindsym Right resize grow width 10 px or 10 ppt
 
         # exit resize mode: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Return mode "default";exec notify-send 'Exited Resize Mode'
+        bindsym Escape mode "default";exec notify-send 'Exited Resize Mode'
+        bindsym $mod+r mode "default";exec notify-send 'Exited Resize Mode'
 }
 set $mode_resize Resize mode enabled
 
@@ -197,26 +180,23 @@ client.focused_inactive $bg     $bg     $fg  $bg       $bg
 client.unfocused        $bg     $bg     $fg  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
-
 client.background       $bg
 
 # Gaps
 gaps inner 10
 gaps outer 10
-
 smart_gaps on
-
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+bindsym $mod+Shift+g mode "$mode_gaps";exec notify-send 'Gaps Mode'
 
 mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym o      mode "$mode_gaps_outer";exec notify-send 'Outer Gaps Mode'
+        bindsym i      mode "$mode_gaps_inner";exec notify-send 'Inner Gaps Mode'
+        bindsym Return mode "default";exec notify-send 'Exited Gaps Mode'
+        bindsym Escape mode "default";exec notify-send 'Exited Gaps Mode'
 }
 mode "$mode_gaps_inner" {
         bindsym plus  gaps inner current plus 5
@@ -227,8 +207,8 @@ mode "$mode_gaps_inner" {
         bindsym Shift+minus gaps inner all minus 5
         bindsym Shift+0     gaps inner all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Return mode "default";exec notify-send 'Exited Gaps Mode'
+        bindsym Escape mode "default";exec notify-send 'Exited Gaps Mode'
 }
 mode "$mode_gaps_outer" {
         bindsym plus  gaps outer current plus 5
@@ -239,8 +219,8 @@ mode "$mode_gaps_outer" {
         bindsym Shift+minus gaps outer all minus 5
         bindsym Shift+0     gaps outer all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Return mode "default";exec notify-send 'Exited Gaps Mode'
+        bindsym Escape mode "default";exec notify-send 'Exited Gaps Mode'
 }
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
@@ -253,7 +233,7 @@ bindsym XF86TouchpadOff exec --no-startup-id synclient Touchpadoff=1
 
 # Autostart the following applications
 # Set monitors correctly
-exec_always --no-startup-id $HOME/Ubuntu-Config/.screenlayout/arandr_startup.sh
+exec_always --no-startup-id $HOME/Ubuntu-Config/xrandr_monitor_startup.sh
 # Status bar
 exec_always --no-startup-id $HOME/Ubuntu-Config/polybar/launch.sh
 # Compositor for transparency

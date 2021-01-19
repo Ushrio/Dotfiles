@@ -19,7 +19,7 @@ startx /usr/bin/i3
 # load the last pyWal colorscheme that was in use
 exec wal -R
 # start up feh and set background
-exec feh --bg-center $HOME/Ubuntu-Config/wallpapers/e67xCKM.png
+exec /home/greg/.fehbg
 
 ################
 # Utilities

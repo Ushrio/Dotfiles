@@ -135,3 +135,5 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
 fi
 
+# set path variables
+export PATH="/home/greg/Programs/spicetify-cli:/home/greg/.cargo/bin:$PATH"

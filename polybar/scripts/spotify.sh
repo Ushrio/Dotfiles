@@ -1,9 +1,9 @@
 #!/bin/sh
 
 main() {
-  if ! pgrep -x spotify >/dev/null; then
-    echo ""; exit
-  fi  
+  #if ! pgrep -x spotify >/dev/null; then
+  #  echo ""; exit
+  #fi  
 
   cmd="org.freedesktop.DBus.Properties.Get"
   domain="org.mpris.MediaPlayer2"
