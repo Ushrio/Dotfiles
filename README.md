@@ -2,7 +2,7 @@
 Configuration for Ubuntu.
 
 ## Programs Used
-* WM: [I3-Gaps](https://github.com/Airblader/i3)
+* WM: [i3-Gaps](https://github.com/Airblader/i3)
 * Terminal: [Kitty](https://sw.kovidgoyal.net/kitty/)
 * Status Bar: [Polybar](https://github.com/polybar/polybar)
 * Application Menu: [Rofi](https://github.com/davatorium/rofi)
@@ -14,6 +14,7 @@ Color Scheme: PyWal)
 * Notification Daemon: [Dunst](https://github.com/dunst-project/dunst)
 * Compositor: [Compton](https://github.com/chjj/compton)
 * Theme Generator: [PyWal](https://github.com/dylanaraps/pywal)
+* Terminal Information: [Neofetch](https://github.com/dylanaraps/neofetch)
 
 All of these are configured to use .Xresources colors.
 These colors are set by [PyWal](https://github.com/dylanaraps/pywal).
