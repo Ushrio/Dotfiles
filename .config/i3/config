@@ -237,6 +237,6 @@ exec_always --no-startup-id $HOME/Ubuntu-Config/scripts/xrandr_monitor_startup.s
 # Status bar
 exec_always --no-startup-id $HOME/Ubuntu-Config/.config/polybar/launch.sh
 # Compositor for transparency
-exec_always --no-startup-id /usr/bin/compton --config $HOME/Ubuntu-Config/.config/compton/compton.conf -b
+exec_always --no-startup-id picom --config $HOME/Ubuntu-Config/.config/picom/picom.conf -b
 # Rclone to mount OneDrive
 exec_always --no-startup-id sh -c "rclone --vfs-cache-mode writes mount 'OneDrive - Wichita State University': $HOME/'OneDrive - Wichita State University'"
