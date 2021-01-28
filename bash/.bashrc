@@ -121,11 +121,15 @@ git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-# Export a custom status line for bash
-export PS1="[\u@\h \W]\[\033[00;32m\]\$(git_branch)\[\033[00m\]\$ "
+# Set the correct shell name for window titles
+# Gets rid of everything up to the last /
+thisShell=$SHELL
+shell="${thisShell##*/}"
+# Set window title for terminals to cwd
+title='\e]0;$shell - \w\a'
 
 # Add completion for the kitty command
-source <(kitty + complete setup bash)
+#source <(kitty + complete setup bash)
 
 # Allows pyWal's newly generated colorschemes to be seen in new terminals (Still resets at reboot)
 (cat ~/.cache/wal/sequences &)
@@ -134,6 +138,9 @@ source <(kitty + complete setup bash)
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
 fi
+
+# Export a custom status line for bash as well as set window title for Alacritty
+export PS1="[\u@\h \W]\[\033[00;32m\]\$(git_branch)\[\033[00m\]\$\[$(echo -e "$title") "
 
 # set path variables
 export PATH="/home/greg/Programs/spicetify-cli:/home/greg/.cargo/bin:$PATH"

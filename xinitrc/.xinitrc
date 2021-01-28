@@ -30,4 +30,4 @@ exec mate-polkit
 exec mate-power-manager
 # Notification daemon
 exec dunst
-# Polybar, Compton, monitor script, and Rclone are in i3 config
+# Polybar, picom, monitor script, and Rclone are in i3 config

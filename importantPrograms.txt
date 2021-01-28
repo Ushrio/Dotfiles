@@ -1,0 +1,103 @@
+# Window manager
+I3-Gaps
+
+# Terminal
+Alacritty
+tmux
+
+# Shell
+Bash
+
+# Network
+nmtui
+network-manager
+ 
+# Status bar
+Polybar
+
+# Compositor
+Picom
+
+# File manager
+Ranger
+
+# Search
+rofi
+
+# Notification
+Dunst
+
+# NTFS Compatibility
+NTFS-3G
+
+# Audio
+Alsa
+
+# Music
+MPD
+MPC
+NCMPCPP
+
+# Spotify
+Spotify
+Spictify
+
+# Video
+MPV
+
+# Internet Browser
+Firefox
+
+# PDF
+Zathura
+
+# Text editor
+Vim (Requires NodeJS for COC)
+Gvim (Requires NodeJS for COC)
+
+# Java Development
+JDK
+Maven
+IntelliJ Idea Ultimate
+
+# C/C++ Development
+LLVM
+Cmake
+
+# LaTeX
+texlive
+latexmk
+
+# Web Development
+NodeJS
+NPM
+ESLINT
+
+# Python Development
+Python3
+Pip3
+
+# Utilities
+feh
+ArandR
+GRUB Customizer
+neofetch
+rclone
+mate-polkit
+
+# System basics
+gzip
+unzip
+zip
+git
+curl
+grep
+wget
+cups
+bluez
+w3m
+
+# Fonts
+fonts-firacode
+fonts-noto-cjk
+ 
