@@ -3,16 +3,18 @@ Configuration for Ubuntu.
 
 ## Programs Used
 * WM: [i3-Gaps](https://github.com/Airblader/i3)
-* Terminal: [Kitty](https://sw.kovidgoyal.net/kitty/)
+* Terminal: [Alacritty](https://github.com/alacritty/alacritty)
 * Status Bar: [Polybar](https://github.com/polybar/polybar)
 * Application Menu: [Rofi](https://github.com/davatorium/rofi)
 * File Manager: [Ranger](https://github.com/ranger/ranger)
 * Spotify Theme: [Spicetify](https://github.com/khanhas/spicetify-cli)
 (Theme: [Dribblish](https://github.com/morpheusthewhite/spicetify-themes/tree/master/Dribbblish)
 Color Scheme: PyWal)
+* Music: [MPD](https://github.com/MusicPlayerDaemon/MPD) (Server), [MPC](https://www.musicpd.org/clients/mpc/) (Basic CLI Client), [NCMPCPP](https://github.com/ncmpcpp/ncmpcpp) (More Featureful Client)
+* Video: [MPV](https://github.com/mpv-player/mpv)
 * PDF Viewer: [Zathura](https://github.com/pwmt/zathura)
 * Notification Daemon: [Dunst](https://github.com/dunst-project/dunst)
-* Compositor: [Compton](https://github.com/chjj/compton)
+* Compositor: [Picom](https://github.com/yshui/picom)
 * Theme Generator: [PyWal](https://github.com/dylanaraps/pywal)
 * Terminal Information: [Neofetch](https://github.com/dylanaraps/neofetch)
 
