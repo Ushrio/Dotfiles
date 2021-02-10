@@ -43,7 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -85,7 +85,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -116,6 +116,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Set vi mode as the defualt mode (Still starts in insert mode)
+set -o vi
+# show the current vi mode in the prompt
+bind 'set show-mode-in-prompt on'
+# Set the symbols and colors used by insert and command mode
+bind 'set vi-cmd-mode-string "\1\e[00;31m\2 :\1\e[00m\2"'
+bind 'set vi-ins-mode-string "\1\e[00;31m\2 +\1\e[00m\2"'
+# Show the matching letters on [Tab][Tab] auto completion
+bind 'set colored-completion-prefix on'
+
 # Create a function that grabs the current git branch for git repos
 git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
@@ -140,7 +150,7 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
 fi
 
 # Export a custom status line for bash as well as set window title for Alacritty
-export PS1="[\u@\h \W]\[\033[00;32m\]\$(git_branch)\[\033[00m\]\$\[$(echo -e "$title") "
+export PS1=" \W \e[00;32m\]\$(git_branch)\e[00m\]λ \[$(echo -e "$title") "
 
 # set path variables
 export PATH="/home/greg/Programs/spicetify-cli:/home/greg/.cargo/bin:$PATH"

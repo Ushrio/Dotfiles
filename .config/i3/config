@@ -17,6 +17,7 @@ bindsym $mod+n border normal
 # Set font
 font xft:firacode 11
 
+# Set the modifier for moving and resizing windows in floating mode
 floating_modifier $mod
 
 # Launch kitty
@@ -32,11 +33,14 @@ bindsym $mod+Shift+d exec --no-startup-id rofi -show run
 # start up firefox
 bindsym $mod+F2 exec firefox
 
-# start up Ranger in kitty
-bindsym $mod+F1 exec alacritty -e "ranger"
+# start up Ranger in Alacritty with PyWal Colors
+bindsym $mod+F1 exec alacritty -e "./Ubuntu-Config/scripts/openRangerWithWalColors.sh"
 
-# start up Gvim
-bindsym $mod+F3 exec gvim
+# start up vim
+bindsym $mod+F3 exec alacritty -e "vim"
+
+# Open up the notification center
+bindsym $mod+F8 exec "./Ubuntu-Config/scripts/notification-center/rofi_notif_center.sh"
 
 # change focus
 bindsym $mod+h focus left
@@ -67,23 +71,23 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # change the next windows orientation
-bindsym $mod+Ctrl+h split h;exec notify-send 'Tile Horizontally'
-bindsym $mod+Ctrl+v split v;exec notify-send 'Tile Vertically'
-bindsym $mod+Ctrl+q split toggle
+bindsym $mod+Ctrl+h split h;exec notify-send  'i3' 'Tile Horizontally'
+bindsym $mod+Ctrl+v split v;exec notify-send 'i3' 'Tile Vertically'
+bindsym $mod+Ctrl+q split toggle; exec notify-send  'i3' 'Tile Toggle'
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking;exec notify-send 'Stacking Layout'
-bindsym $mod+w layout tabbed;exec notify-send 'Tabbed Layout'
-bindsym $mod+e layout toggle split;exec notify-send 'Split Layout (Default)'
+bindsym $mod+s layout stacking;exec notify-send 'i3' 'Stacking Layout'
+bindsym $mod+w layout tabbed;exec notify-send 'i3' 'Tabbed Layout'
+bindsym $mod+e layout toggle split;exec notify-send 'i3' 'Split Layout (Default)'
 
 # toggle tiling / floating
-bindsym $mod+space floating toggle;exec notify-send 'Floating Layout'
+bindsym $mod+space floating toggle;exec notify-send 'i3' 'Floating Layout'
 
 # change focus between tiling / floating windows
-bindsym $mod+Shift+space focus mode_toggle
+bindsym $mod+Shift+space focus mode_toggle;exec notify-send 'i3' 'Floating/Split Toggle'
 
 # toggle sticky
 #bindsym $mod+Shift+s sticky toggle
@@ -146,10 +150,10 @@ workspace $ws5 output DisplayPort-2
 workspace $ws7 output DisplayPort-2
 workspace $ws9 output DisplayPort-2
 
-workspace $ws2 output DVI-D-0
-workspace $ws4 output DVI-D-0
-workspace $ws6 output DVI-D-0
-workspace $ws8 output DVI-D-0
+workspace $ws2 output HDMI-A-0
+workspace $ws4 output HDMI-A-0
+workspace $ws6 output HDMI-A-0
+workspace $ws8 output HDMI-A-0
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -161,7 +165,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Resize window (you can also use the mouse for that)
-bindsym $mod+r mode "$mode_resize";exec notify-send 'Resize Mode Active'
+bindsym $mod+r mode "$mode_resize";exec notify-send 'i3' 'Resize Mode Active \n(h) Width -5 (j) Height +5 (k) Height -5 (l) Width -5'
+set $mode_resize Resize Mode Enabled
 mode "$mode_resize" {
         # These bindings trigger as soon as you enter the resize mode
         # Pressing left will shrink the window’s width.
@@ -172,6 +177,11 @@ mode "$mode_resize" {
         bindsym j resize grow height 5 px or 5 ppt
         bindsym k resize shrink height 5 px or 5 ppt
         bindsym l resize grow width 5 px or 5 ppt
+        
+        bindsym Shift+h resize shrink width 10 px or 10 ppt
+        bindsym Shift+j resize grow height 10 px or 10 ppt
+        bindsym Shift+k resize shrink height 10 px or 10 ppt
+        bindsym Shift+l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -180,11 +190,10 @@ mode "$mode_resize" {
         bindsym Right resize grow width 10 px or 10 ppt
 
         # exit resize mode: Enter or Escape
-        bindsym Return mode "default";exec notify-send 'Exited Resize Mode'
-        bindsym Escape mode "default";exec notify-send 'Exited Resize Mode'
-        bindsym $mod+r mode "default";exec notify-send 'Exited Resize Mode'
+        bindsym Return mode "default";exec notify-send 'i3' 'Exited Resize Mode'
+        bindsym Escape mode "default";exec notify-send 'i3' 'Exited Resize Mode'
+        bindsym $mod+r mode "default";exec notify-send 'i3' 'Exited Resize Mode'
 }
-set $mode_resize Resize mode enabled
 
 # Get colors from Xresource file that is set by pyWal
 set_from_resource $fg i3wm.color7 #f0f0f0
@@ -202,16 +211,17 @@ gaps inner 10
 gaps outer 10
 smart_gaps on
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps Gaps: (o) Outer, (i) Inner, (r) Reset
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps";exec notify-send 'Gaps Mode'
+bindsym $mod+Shift+g mode "$mode_gaps";exec notify-send 'i3' 'Gaps Mode' '(o) Outer (i) Inner (r) Reset'
 
 mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer";exec notify-send 'Outer Gaps Mode'
-        bindsym i      mode "$mode_gaps_inner";exec notify-send 'Inner Gaps Mode'
-        bindsym Return mode "default";exec notify-send 'Exited Gaps Mode'
-        bindsym Escape mode "default";exec notify-send 'Exited Gaps Mode'
+        bindsym o      mode "$mode_gaps_outer";exec notify-send 'i3' 'Outer Gaps Mode (+) +5 (-) -5 (0) 0'
+        bindsym i      mode "$mode_gaps_inner";exec notify-send 'i3' 'Inner Gaps Mode (+) +5 (-) -5'
+        bindsym r      gaps inner all set 10; gaps outer all set 10; mode "default"
+        bindsym Return mode "default";exec notify-send 'i3' 'Exited Gaps Mode'
+        bindsym Escape mode "default";exec notify-send 'i3' 'Exited Gaps Mode'
 }
 mode "$mode_gaps_inner" {
         bindsym plus  gaps inner current plus 5
@@ -222,8 +232,10 @@ mode "$mode_gaps_inner" {
         bindsym Shift+minus gaps inner all minus 5
         bindsym Shift+0     gaps inner all set 0
 
-        bindsym Return mode "default";exec notify-send 'Exited Gaps Mode'
-        bindsym Escape mode "default";exec notify-send 'Exited Gaps Mode'
+        bindsym Return mode "default";exec notify-send 'i3' 'Exited Gaps Mode'
+        bindsym Escape mode "default";exec notify-send 'i3' 'Exited Gaps Mode'
+        bindsym Shift+Return mode "$mode_gaps";exec notify-send 'i3' 'Returned to Gaps Selection Mode'
+        bindsym Shift+Escape mode "$mode_gaps";exec notify-send 'i3' 'Returned to Gaps Selection Mode'
 }
 mode "$mode_gaps_outer" {
         bindsym plus  gaps outer current plus 5
@@ -234,8 +246,10 @@ mode "$mode_gaps_outer" {
         bindsym Shift+minus gaps outer all minus 5
         bindsym Shift+0     gaps outer all set 0
 
-        bindsym Return mode "default";exec notify-send 'Exited Gaps Mode'
-        bindsym Escape mode "default";exec notify-send 'Exited Gaps Mode'
+        bindsym Return mode "default";exec notify-send 'i3' 'Exited Gaps Mode'
+        bindsym Escape mode "default";exec notify-send 'i3' 'Exited Gaps Mode'
+        bindsym Shift+Return mode "$mode_gaps";exec notify-send 'i3' 'Returned to Gaps Selection Mode'
+        bindsym Shift+Escape mode "$mode_gaps";exec notify-send 'i3' 'Returned to Gaps Selection Mode'
 }
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
