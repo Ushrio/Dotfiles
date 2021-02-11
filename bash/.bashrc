@@ -25,7 +25,7 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -43,7 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-force_color_prompt=yes
+#force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -131,12 +131,15 @@ git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
+# Don't be stopped by <C-s> and <C-q> in terminals
+stty -ixon
+
 # Set the correct shell name for window titles
 # Gets rid of everything up to the last /
 thisShell=$SHELL
 shell="${thisShell##*/}"
 # Set window title for terminals to cwd
-title='\e]0;$shell - \w\a'
+title='\[\e]0;$shell - \w\a\]'
 
 # Add completion for the kitty command
 #source <(kitty + complete setup bash)
@@ -150,7 +153,7 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
 fi
 
 # Export a custom status line for bash as well as set window title for Alacritty
-export PS1=" \W \e[00;32m\]\$(git_branch)\e[00m\]λ \[$(echo -e "$title") "
+export PS1="${title} \W \[\e[00;32m\]\$(git_branch)\[\e[00m\]λ "
 
 # set path variables
 export PATH="/home/greg/Programs/spicetify-cli:/home/greg/.cargo/bin:$PATH"

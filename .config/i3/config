@@ -211,15 +211,16 @@ gaps inner 10
 gaps outer 10
 smart_gaps on
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) Outer, (i) Inner, (r) Reset
+set $mode_gaps Gaps: (o) Outer, (i) Inner, (r) Reset (0) Zero
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps";exec notify-send 'i3' 'Gaps Mode' '(o) Outer (i) Inner (r) Reset'
+bindsym $mod+Shift+g mode "$mode_gaps";exec notify-send 'i3' 'Gaps Mode' '(o) Outer (i) Inner (r) Reset (0) Zero'
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer";exec notify-send 'i3' 'Outer Gaps Mode (+) +5 (-) -5 (0) 0'
         bindsym i      mode "$mode_gaps_inner";exec notify-send 'i3' 'Inner Gaps Mode (+) +5 (-) -5'
-        bindsym r      gaps inner all set 10; gaps outer all set 10; mode "default"
+        bindsym 0      gaps inner current set 0; gaps outer current set 0; mode "default"
+        bindsym r      gaps inner current set 10; gaps outer current set 10; mode "default"
         bindsym Return mode "default";exec notify-send 'i3' 'Exited Gaps Mode'
         bindsym Escape mode "default";exec notify-send 'i3' 'Exited Gaps Mode'
 }
