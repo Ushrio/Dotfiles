@@ -199,12 +199,12 @@ mode "$mode_resize" {
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
-client.background       $bg
+client.focused          $fg     $bg     $fg  $bg       $bg
+client.focused_inactive $fg     $bg     $fg  $bg       $bg
+client.unfocused        $fg     $bg     $fg  $bg       $bg
+client.urgent           $fg     $bg     $fg  $bg       $bg
+client.placeholder      $fg     $bg     $fg  $bg       $bg
+client.background       $fg
 
 # Gaps
 gaps inner 10
@@ -253,6 +253,12 @@ mode "$mode_gaps_outer" {
         bindsym Shift+Escape mode "$mode_gaps";exec notify-send 'i3' 'Returned to Gaps Selection Mode'
 }
 
+# Move the currently focused window to a scratchpad (Hide the window)
+bindsym $mod+Shift+minus move scratchpad
+# Show the first scratchpad
+bindsym $mod+minus scratchpad show
+
+# Set laptop hotkeys to raise volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db- unmute
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
@@ -270,3 +276,6 @@ exec_always --no-startup-id $HOME/Ubuntu-Config/.config/polybar/launch.sh
 exec_always --no-startup-id picom --config $HOME/Ubuntu-Config/.config/picom/picom.conf -b
 # Rclone to mount OneDrive
 exec_always --no-startup-id sh -c "rclone --vfs-cache-mode writes mount 'OneDrive - Wichita State University': $HOME/'OneDrive - Wichita State University'"
+exec_always --no-startup-id sh -c "rclone --vfs-cache-mode writes mount 'OneDrive - Personal': $HOME/'OneDrive - Personal'"
+# Start up KeePassXC Password Database
+exec_always --no-startup-id keepassxc
