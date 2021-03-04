@@ -1,5 +1,5 @@
-# Ubuntu-Config
-Configuration for Ubuntu.
+# Dotfiles
+Configuration for Linux systems using Xorg. Should work with Sway on Wayland with minimal configuration.
 
 ## Programs Used
 * WM: [i3-Gaps](https://github.com/Airblader/i3)
@@ -21,5 +21,5 @@ Color Scheme: PyWal)
 All of these are configured to use .Xresources colors.
 These colors are set by [PyWal](https://github.com/dylanaraps/pywal).
 
-Zathura and Dunst's colors are set via template files using PyWal's 
+Zathura, the notification center, and Dunst's colors are set via template files using PyWal's 
 built in [template](https://github.com/dylanaraps/pywal/wiki/User-Template-Files) system.
