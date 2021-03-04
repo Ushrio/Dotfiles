@@ -268,12 +268,20 @@ bindsym XF86TouchpadOn exec --no-startup-id synclient Touchpadoff=0
 bindsym XF86TouchpadOff exec --no-startup-id synclient Touchpadoff=1
 
 # Autostart the following applications
+# Load the last pyWal colorscheme used
+exec_always --no-startup-id wal -R
+# Set wallpaper
+exec_always --no-startup-id $HOME/.fehbg
 # Set monitors correctly
 exec_always --no-startup-id $HOME/Ubuntu-Config/scripts/xrandr_monitor_startup.sh
 # Status bar
 exec_always --no-startup-id $HOME/Ubuntu-Config/.config/polybar/launch.sh
 # Compositor for transparency
 exec_always --no-startup-id picom --config $HOME/Ubuntu-Config/.config/picom/picom.conf -b
+# Authentication agent for polkit
+exec_always --no-startup-id mate-polkit
+# Notification daemon
+exec_always --no-startup-id dunst
 # Rclone to mount OneDrive
 exec_always --no-startup-id sh -c "rclone --vfs-cache-mode writes mount 'OneDrive - Wichita State University': $HOME/'OneDrive - Wichita State University'"
 exec_always --no-startup-id sh -c "rclone --vfs-cache-mode writes mount 'OneDrive - Personal': $HOME/'OneDrive - Personal'"

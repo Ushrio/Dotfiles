@@ -134,6 +134,9 @@ git_branch() {
 # Don't be stopped by <C-s> and <C-q> in terminals
 stty -ixon
 
+# Set alias for nvim
+alias vim='nvim'
+
 # Set the correct shell name for window titles
 # Gets rid of everything up to the last /
 thisShell=$SHELL

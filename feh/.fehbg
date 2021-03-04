@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill '/mount/wd4tbusb/Pictures/Wallpapers/kinkakuji-kyoto-winter.jpg' 
+feh --no-fehbg --bg-fill '/home/greg/Pictures/wd4tb/Wallpapers/kinkakuji-kyoto-winter.jpg' 

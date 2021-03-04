@@ -12,22 +12,3 @@
 ##################
 # start i3
 startx /usr/bin/i3
-
-################
-# Interface
-################
-# load the last pyWal colorscheme that was in use
-exec wal -R
-# start up feh and set background
-exec /home/greg/.fehbg
-
-################
-# Utilities
-################
-# Authentication agent for polkit
-exec mate-polkit
-# Power manager
-exec mate-power-manager
-# Notification daemon
-exec dunst
-# Polybar, picom, monitor script, and Rclone are in i3 config
