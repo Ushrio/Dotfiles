@@ -159,4 +159,4 @@ fi
 export PS1="${title} \W \[\e[00;32m\]\$(git_branch)\[\e[00m\]λ "
 
 # set path variables
-export PATH="/home/greg/Programs/spicetify-cli:/home/greg/.cargo/bin:$PATH"
+export PATH="/home/greg/Programs/spicetify-cli:/home/greg/Programs/chrome-linux:/home/greg/Programs/jdt_language_server:/home/greg/.cargo/bin:$PATH"

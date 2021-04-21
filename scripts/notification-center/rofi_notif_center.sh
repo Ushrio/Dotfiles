@@ -67,7 +67,7 @@ fi
 readarray -t timestamp_array < <(echo -en "$timestamp")
 count=0
 while IFS= read -r a; do
-    app_spaces=$(printf %-26.42s "$a")
+    app_spaces=$(printf %-24s "$a")
     embolden_app="${embolden_app}${embolden_app:+\n}<b>$app_spaces</b>${timestamp_array[$count]}"
     count=$((count+1))
 done <<< "$appname"

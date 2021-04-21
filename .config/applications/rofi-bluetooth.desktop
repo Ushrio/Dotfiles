@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Exec=./.config/rofi/scripts/rofi-bluetooth.sh
+Name=Rofi Bluetooth Menu
+GenericName=Bluetooth Menu

@@ -1,5 +1,5 @@
 # Window manager
-I3-Gaps
+I3-Gaps/Sway
 
 # Terminal
 Alacritty
@@ -32,6 +32,7 @@ NTFS-3G
 
 # Audio
 Alsa
+Pulse audio
 
 # Music
 MPD
@@ -47,13 +48,15 @@ MPV
 
 # Internet Browser
 Firefox
+Chromium?
 
 # PDF
 Zathura
 
 # Text editor
-Vim (Requires NodeJS for COC)
-Gvim (Requires NodeJS for COC)
+Vim
+Neovim
+Emacs
 
 # Java Development
 JDK
@@ -66,12 +69,7 @@ Cmake
 
 # LaTeX
 texlive
-latexmk
-
-# Web Development
-NodeJS
-NPM
-ESLINT
+latexmk/rubber
 
 # Python Development
 Python3
@@ -79,11 +77,11 @@ Pip3
 
 # Utilities
 feh
-ArandR
 GRUB Customizer
 neofetch
 rclone
 mate-polkit
+pywal
 
 # System basics
 gzip
@@ -92,6 +90,7 @@ zip
 git
 curl
 grep
+ripgrep
 wget
 cups
 bluez
@@ -100,4 +99,15 @@ w3m
 # Fonts
 fonts-firacode
 fonts-noto-cjk
+Iosevka
+
+# School
+Zoom
+Libreoffice Writer
+
+# LSP
+Clangd
+Eclipse.jdt.ls
+pyls
+texlab
  
