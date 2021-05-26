@@ -158,5 +158,8 @@ fi
 # Export a custom status line for bash as well as set window title for Alacritty
 export PS1="${title} \W \[\e[00;32m\]\$(git_branch)\[\e[00m\]λ "
 
-# set path variables
-export PATH="/home/greg/Programs/spicetify-cli:/home/greg/Programs/chrome-linux:/home/greg/Programs/jdt_language_server:/home/greg/.cargo/bin:$PATH"
+# set custom PATH variables
+# all subdirectories in Programs folder
+DIRS=`echo /home/greg/Programs/*`
+PATH="${DIRS// /:}:$PATH:$HOME/.cargo/bin:"
+CLASSPATH="~/Programs/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.6.100.v20201223-0822.jar"

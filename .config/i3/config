@@ -283,7 +283,7 @@ exec_always --no-startup-id mate-polkit
 # Notification daemon
 exec_always --no-startup-id dunst
 # Rclone to mount OneDrive
-exec_always --no-startup-id sh -c "rclone --vfs-cache-mode writes mount 'OneDrive - Wichita State University': $HOME/'OneDrive - Wichita State University'"
-exec_always --no-startup-id sh -c "rclone --vfs-cache-mode writes mount 'OneDrive - Personal': $HOME/'OneDrive - Personal'"
+exec_always --no-startup-id sh -c "rclone --vfs-cache-mode writes mount --allow-non-empty 'OneDrive - Wichita State University': $HOME/'OneDrive - Wichita State University'"
+exec_always --no-startup-id sh -c "rclone --vfs-cache-mode writes mount --allow-non-empty 'OneDrive - Personal': $HOME/'OneDrive - Personal'"
 # Start up KeePassXC Password Database
 exec_always --no-startup-id keepassxc
