@@ -1,0 +1,8 @@
+tags
+TAGS
+*.lock
+*.swp
+*~
+Session.vim
+.vscode/
+*.iml

@@ -2,3 +2,6 @@
 --exclude=.git/*
 --exclude=.idea/*
 --exclude=target/*
+
+--tag-relative=yes
+--fields=+ailmnS
