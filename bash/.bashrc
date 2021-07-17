@@ -144,12 +144,6 @@ shell="${thisShell##*/}"
 # Set window title for terminals to cwd
 title='\[\e]0;$shell - \w\a\]'
 
-# Add completion for the kitty command
-#source <(kitty + complete setup bash)
-
-# Allows pyWal's newly generated colorschemes to be seen in new terminals (Still resets at reboot)
-(cat ~/.cache/wal/sequences &)
-
 # run .xinitrc at startup
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
