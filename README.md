@@ -9,6 +9,8 @@ Wayland display server.
 * Music: [CMUS](https://github.com/cmus/cmus)
 * Video: [MPV](https://github.com/mpv-player/mpv)
 * PDF Viewer: [Zathura](https://github.com/pwmt/zathura)
+* Theme: [Orchis-Dark](https://github.com/vinceliuice/Orchis-theme)
+* Icon Theme: [Tela](https://github.com/vinceliuice/Tela-icon-theme)
 
 ## How to Setup
 There is a script called `auto_setup.sh` under the `/scripts/` folder. This 
