@@ -1,0 +1,15 @@
+[Unit]
+Description=OneDrive Personal (rclone)
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+Type=notify
+User=greg
+Group=greg
+ExecStart=/usr/bin/rclone --vfs-cache-mode writes mount 'OneDrive - Personal': /home/greg/'OneDrive - Personal' 
+Restart=failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
