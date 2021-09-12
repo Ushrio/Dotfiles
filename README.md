@@ -1,25 +1,17 @@
 # Dotfiles
-Configuration for Linux systems using Xorg. Should work with Sway on Wayland with minimal configuration.
+Configuration for Fedora based system using GNOME desktop environment and the 
+Wayland display server.
 
 ## Programs Used
-* WM: [i3-Gaps](https://github.com/Airblader/i3)
+* Distro: Fedora 34
+* DE: GNOME 40
 * Terminal: [Alacritty](https://github.com/alacritty/alacritty)
-* Status Bar: [Polybar](https://github.com/polybar/polybar)
-* Application Menu: [Rofi](https://github.com/davatorium/rofi)
-* File Manager: [Ranger](https://github.com/ranger/ranger)
-* Spotify Theme: [Spicetify](https://github.com/khanhas/spicetify-cli)
-(Theme: [Dribblish](https://github.com/morpheusthewhite/spicetify-themes/tree/master/Dribbblish)
-Color Scheme: PyWal)
-* Music: [MPD](https://github.com/MusicPlayerDaemon/MPD) (Server), [MPC](https://www.musicpd.org/clients/mpc/) (Basic CLI Client), [NCMPCPP](https://github.com/ncmpcpp/ncmpcpp) (More Featureful Client)
+* Music: [CMUS](https://github.com/cmus/cmus)
 * Video: [MPV](https://github.com/mpv-player/mpv)
 * PDF Viewer: [Zathura](https://github.com/pwmt/zathura)
-* Notification Daemon: [Dunst](https://github.com/dunst-project/dunst)
-* Compositor: [Picom](https://github.com/yshui/picom)
-* Theme Generator: [PyWal](https://github.com/dylanaraps/pywal)
-* Terminal Information: [Neofetch](https://github.com/dylanaraps/neofetch)
 
-All of these are configured to use .Xresources colors.
-These colors are set by [PyWal](https://github.com/dylanaraps/pywal).
-
-Zathura, the notification center, and Dunst's colors are set via template files using PyWal's 
-built in [template](https://github.com/dylanaraps/pywal/wiki/User-Template-Files) system.
+## How to Setup
+There is a script called `auto_setup.sh` under the `/scripts/` folder. This 
+script should install and set up everything as expected. The last bits of work 
+you will have to complete have to do with setting up the visual stuff like 
+folders in the application drawer.
