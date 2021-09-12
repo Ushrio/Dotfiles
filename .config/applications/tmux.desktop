@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Tmux
-GenericName=Terminal Multiplexer
-Exec=./Ubuntu-Config/scripts/openTmuxWithWalColors.sh
-Terminal=true
-Comment=Can multiplex terminals
-Keywords=terminal;multiplexer

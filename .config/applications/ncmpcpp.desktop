@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Ncmpcpp
-GenericName=NCurses Music Player Client
-Exec=./Ubuntu-Config/scripts/openNcmpcppWithWalColors.sh
-Terminal=true
-Categories=AudioVideo;Audio;Player;ConsoleOnly;
