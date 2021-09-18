@@ -1,3 +1,7 @@
 *.swp
 /.config
 /lightdm
+
+tags
+TAGS
+.lock
