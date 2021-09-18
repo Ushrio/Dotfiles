@@ -53,6 +53,10 @@ sudo snap install -y emacs --edge --classic
 sudo snap install -y spotify
 
 # Symlink all the important files
+mkdir ~/.config/git
+mkdir ~/.config/alacritty
+mkdir ~/.config/zathura
+mkdir ~/.ctags.d
 ln -s ~/Dotfiles/.config/git/ignore ~/.config/git/ignore
 ln -s ~/Dotfiles/.config/alacritty ~/.config/alacritty/alacritty.yml 
 ln -s ~/Dotfiles/.config/zathura ~/.config/zathura/zathurarc 
