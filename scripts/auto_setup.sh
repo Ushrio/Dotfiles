@@ -84,6 +84,9 @@ systemctl --user enable rclone@onedrive_wsu.service
 sudo dnf copr enable -y peterwu/iosevka
 sudo dnf install -y iosevka-fonts
 
+# Install JetBrains Mono font
+curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh
+
 # Clone down Emacs and Vim configs
 git clone https://www.github.com/Ushrio/Emacs-Config.git
 git clone https://www.githum.com/Ushrio/Vim-Config.git
@@ -97,7 +100,7 @@ ln -s ~/Emacs-Config/Custom ~/.emacs.d/Custom
 ln -s ~/Vim-Config/.vimrc ~/.vim/.vimrc
 ln -s ~/Vim-Config/after ~/.vim/after
 ln -s ~/Vim-Config/autoload ~/.vim/autoload
-ln s ~/Vim-Config/skeletons ~/.vim/skeletons
+ln -s ~/Vim-Config/skeletons ~/.vim/skeletons
 ln -s ~/Vim-Config/nvim ~/.config/nvim
 
 # Download the Tela icon theme from Github
