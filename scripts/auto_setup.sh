@@ -65,20 +65,20 @@ ln -s ~/Dotfiles/.config/alacritty ~/.config/alacritty/alacritty.yml
 ln -s ~/Dotfiles/.config/zathura ~/.config/zathura/zathurarc 
 ln -s ~/Dotfiles/.ctags.d/default.ctags ~/.ctags.d/default.ctags 
 ln -s ~/Dotfiles/bash/.bashrc ~/.bashrc
+ln -s ~/Dotfiles/bash/.bash_profile ~/.bash_profile
+ln -s ~/Dotfiles/bash/.bash_aliases ~/.bash_aliases
 ln -s ~/Dotfiles/.tmux.conf ~/.tmux.conf
+
+# Create Rclone Directories
+mkdir ~/onedrive_personal
+mkdir ~/onedrive_wsu
 
 # Move the systemd services
 mkdir -p ~/.config/systemd/user
-ln -s ~/Dotfiles/systemd_services/rclone.service ~/.config/systemd/user/rclone.service
-ln -s ~/Dotfiles/systemd_services/onedrivewsu.service ~/.config/systemd/onedrivewsu.service
+ln -s ~/Dotfiles/systemd_services/rclone@.service ~/.config/systemd/user/rclone@.service
 ln -s ~/Dotfiles/systemd_services/emacs.service ~/.config/systemd/emacs.service
-systemctl --user enable rclone.service
-systemctl --user enable onedrivewsu.service
-systemctl --user enable emacs.service 
-
-# Create Rclone Directories
-mkdir ~/OneDrive\ -\ Personal
-mkdir ~/OneDrive\ -\ WSU
+systemctl --user enable rclone@onedrive_personal.service
+systemctl --user enable rclone@onedrive_wsu.service
 
 # Install Iosevka font
 sudo dnf copr enable -y peterwu/iosevka
@@ -92,12 +92,12 @@ git clone https://www.githum.com/Ushrio/Vim-Config.git
 ln -s ~/Emacs-Config/init.el ~/.emacs.d/init.el
 ln -s ~/Emacs-Config/early-init.el ~/.emacs.d/early-init.el
 ln -s ~/Emacs-Config/Custom ~/.emacs.d/Custom
-ln -s ~/Emacs-Config/mu4e ~/.emacs.d/mu4e
 
 # Symlink all of the files from Vim config
 ln -s ~/Vim-Config/.vimrc ~/.vim/.vimrc
 ln -s ~/Vim-Config/after ~/.vim/after
 ln -s ~/Vim-Config/autoload ~/.vim/autoload
+ln s ~/Vim-Config/skeletons ~/.vim/skeletons
 ln -s ~/Vim-Config/nvim ~/.config/nvim
 
 # Download the Tela icon theme from Github
@@ -126,7 +126,6 @@ cd ~/Programs/emacs
     --with-pgtk CFLAGS='-O2 -march=native' --program-transform-name=s/^ctags$/ctags_emacs/
 make -j6
 sudo make install
-systemctl -user start emacs
 
 # Install python packages
 pip install --user pynvim
