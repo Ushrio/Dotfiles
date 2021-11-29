@@ -8,6 +8,11 @@ case $- in
       *) return;;
 esac
 
+# Load alias file
+if [ -f ~/.bash_aliases ]; then
+	. ~/.bash_aliases
+fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
