@@ -127,6 +127,5 @@ DIRS=`echo /home/greg/Programs/*`
 PATH="${DIRS// /:}:$PATH:$HOME/.cargo/bin:"
 
 # Set up default editors
-export ALTERNATE_EDITOR=""
-export EDITOR="emacsclient -t"
-export VISUAL="emacsclient -c -a emacs"
+export EDITOR="nvim"
+export VISUAL="emacs -c"
