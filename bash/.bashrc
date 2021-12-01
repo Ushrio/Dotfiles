@@ -150,10 +150,9 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
 fi
 
 # Export a custom status line for bash as well as set window title for Alacritty
-export PS1="${title} \W \[\e[00;32m\]\$(git_branch)\[\e[00m\]λ "
+export PS1=" \W \[\e[00;32m\]\$(git_branch)\[\e[00m\]λ "
 
 # set custom PATH variables
 # all subdirectories in Programs folder
 DIRS=`echo /home/greg/Programs/*`
-PATH="${DIRS// /:}:$PATH:$HOME/.cargo/bin:"
-CLASSPATH="~/Programs/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.6.100.v20201223-0822.jar"
+PATH="${DIRS// /:}:$PATH:$HOME/.cargo/bin:$HOME/.local/bin"
