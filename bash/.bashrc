@@ -124,7 +124,7 @@ export PS1=" \W \[\e[00;32m\]\$(git_branch)\[\e[00m\]λ "
 # set custom PATH variables
 # all subdirectories in Programs folder
 DIRS=`echo /home/greg/Programs/*`
-PATH="${DIRS// /:}:$PATH:$HOME/.cargo/bin:"
+PATH="${DIRS// /:}:$PATH:$HOME/.cargo/bin:$HOME/.local/bin"
 
 # Set up default editors
 export EDITOR="nvim"
