@@ -13,7 +13,6 @@ sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-r
 # Install all of the required programs
 sudo dnf install -y\ 
 vim\ 
-neovim\ 
 alacritty\ 
 mpv\
 feh\
@@ -119,15 +118,23 @@ sudo make install # may require extra privileges depending on where to install
 
 # Download and build emacs
 sudo dnf install -y jansson-devel mpfr-devel libmpc-devel gmp-devel libgccjit-devel \
-    libungif-compat-devel libXpm-devel libjpeg-devel libpng-devel gtk3-devel libtiff-devel \
+    giflib-devel gnutls-devel libXpm-devel libjpeg-devel libpng-devel gtk3-devel libtiff-devel \
     dbus-devel ncurses-devel
-git clone https://github.com/flatwhatson/emacs ~/Programs/
+git clone https://github.com/emacs-mirror/emacs ~/Programs/emacs
 cd ~/Programs/emacs
 ./autogen.sh
 ./configure -C --with-dbus --with-gif --with-jpeg --with-png --with-rsvg \
     --with-tiff --with-gnutls --with-xft --with-xpm --with-gpm=no --with-modules --with-native-compilation \
-    --with-pgtk CFLAGS='-O2 -march=native' --program-transform-name=s/^ctags$/ctags_emacs/
+    CFLAGS='-O2 -march=native' --program-transform-name=s/^ctags$/ctags_emacs/
 make -j6
+sudo make install
+
+# Download and build neovim
+sudo yum -y install ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch gettext curl
+git clone https://github.com/neovim/neovim ~/Programs/neovim
+cd ~/Programs/neovim
+git checkout stable
+make CMAKE_BUILD_TYPE=Release
 sudo make install
 
 # Install python packages
