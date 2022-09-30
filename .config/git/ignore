@@ -6,3 +6,9 @@ TAGS
 Session.vim
 .vscode/
 *.iml
+*restclient*
+verb.org
+.classpath
+.factorypath
+.project
+.settings/
