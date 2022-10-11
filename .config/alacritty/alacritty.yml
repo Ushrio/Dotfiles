@@ -34,7 +34,7 @@ window:
     lines: 38 
 
   # Background opacity
-  opacity: 0.5
+  opacity: 0.8
   # Window position (changes require restart)
   #
   # Specified in number of pixels.

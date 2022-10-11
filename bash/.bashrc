@@ -129,3 +129,5 @@ PATH="${DIRS// /:}:$PATH:$HOME/.cargo/bin:$HOME/.local/bin"
 # Set up default editors
 export EDITOR="nvim"
 export VISUAL="emacs -c"
+. "$HOME/.cargo/env"
+export JAVA_HOME="/usr/bin/java"
