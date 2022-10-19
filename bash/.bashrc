@@ -78,7 +78,7 @@ export PS1=" \W \[\e[00;32m\]\$(git_branch)\[\e[00m\]λ "
 
 # set custom PATH variables
 # all subdirectories in Programs folder
-export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-17.0.3.0.7-1.fc34.x86_64"
+export JAVA_HOME="/usr/bin/java"
 PATH="$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.ebcli-virtual-env/executables:$PATH"
 
 # Set up default editors

@@ -11,15 +11,12 @@ sudo dnf upgrade -y
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # Install all of the required programs
-sudo dnf install -y\ 
-vim\ 
-alacritty\ 
+sudo dnf install -y\
+vim\
+alacritty\
 mpv\
 feh\
-cmus\
-zathura\ 
-zathura-pdf-poppler\ 
-libreoffice-writer\ 
+libreoffice-writer\
 libreoffice-calc\
 libreoffice-impress\
 libreoffice-draw\
@@ -31,7 +28,7 @@ gnome-shell-extnesion-common\
 gnome-shell-extnesion-user-theme\
 gnome-screenshot\
 dconf-editor\
-java-11-openjdk\
+java-17-openjdk\
 python3\
 rclone\
 clang\
@@ -40,6 +37,7 @@ ripgrep\
 tmux\
 maven\
 gdb\
+okular\
 
 # Install all of the required texlive packages
 sudo dnf install -y \
@@ -60,9 +58,9 @@ mkdir ~/.config/alacritty
 mkdir ~/.config/zathura
 mkdir ~/.ctags.d
 ln -s ~/Dotfiles/.config/git/ignore ~/.config/git/ignore
-ln -s ~/Dotfiles/.config/alacritty ~/.config/alacritty/alacritty.yml 
-ln -s ~/Dotfiles/.config/zathura ~/.config/zathura/zathurarc 
-ln -s ~/Dotfiles/.ctags.d/default.ctags ~/.ctags.d/default.ctags 
+ln -s ~/Dotfiles/.config/alacritty ~/.config/alacritty/alacritty.yml
+ln -s ~/Dotfiles/.config/zathura ~/.config/zathura/zathurarc
+ln -s ~/Dotfiles/.ctags.d/default.ctags ~/.ctags.d/default.ctags
 ln -s ~/Dotfiles/bash/.bashrc ~/.bashrc
 ln -s ~/Dotfiles/bash/.bash_profile ~/.bash_profile
 ln -s ~/Dotfiles/bash/.bash_aliases ~/.bash_aliases
