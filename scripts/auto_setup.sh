@@ -121,9 +121,9 @@ sudo dnf install -y jansson-devel mpfr-devel libmpc-devel gmp-devel libgccjit-de
 git clone https://github.com/emacs-mirror/emacs ~/Programs/emacs
 cd ~/Programs/emacs
 ./autogen.sh
-./configure -C --with-dbus --with-gif --with-jpeg --with-png --with-rsvg \
+./configure --with-dbus --with-gif --with-jpeg --with-png --with-rsvg \
     --with-tiff --with-gnutls --with-xft --with-xpm --with-gpm=no --with-modules --with-native-compilation \
-    CFLAGS='-O2 -march=native' --program-transform-name=s/^ctags$/ctags_emacs/
+    CFLAGS='-O2 -march=native' --program-transform-name=s/^ctags$/ctags_emacs/ --with-pgtk
 make -j6
 sudo make install
 

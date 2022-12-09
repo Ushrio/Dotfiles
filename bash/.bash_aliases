@@ -26,5 +26,4 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # Set alias for nvim
 alias vim='nvim'
-
-#alias emacs='emacsclient -c -a emacs'
+alias emacs='emacsclient -c -a emacs'

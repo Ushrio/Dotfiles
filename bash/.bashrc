@@ -77,13 +77,13 @@ fi
 export PS1=" \W \[\e[00;32m\]\$(git_branch)\[\e[00m\]λ "
 
 # set custom PATH variables
-# all subdirectories in Programs folder
 export JAVA_HOME="/usr/bin/java"
-PATH="$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.ebcli-virtual-env/executables:$PATH"
+export EB_HOME="$HOME/.ebcli-virtual-env"
+PATH="$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:$EB_HOME/executables:$PATH"
 
 # Set up default editors
-export EDITOR="nvim"
-export VISUAL="emacs"
+export EDITOR="emacsclient -t"
+export VISUAL="emacsclient -c -a emacs"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/greg/Programs/google-cloud-sdk/path.bash.inc' ]; then . '/home/greg/Programs/google-cloud-sdk/path.bash.inc'; fi
