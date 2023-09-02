@@ -78,15 +78,15 @@ export PS1=" \W \[\e[00;32m\]\$(git_branch)\[\e[00m\]λ "
 
 # set custom PATH variables
 export JAVA_HOME="/usr/bin/java"
-export EB_HOME="$HOME/.ebcli-virtual-env"
-PATH="$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:$EB_HOME/executables:$PATH"
+PATH="$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin::$PATH"
 
 # Set up default editors
 export EDITOR="emacsclient -t"
 export VISUAL="emacsclient -c -a emacs"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/greg/Programs/google-cloud-sdk/path.bash.inc' ]; then . '/home/greg/Programs/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '/home/greg/programs/google-cloud-sdk/path.bash.inc' ]; then . '/home/greg/programs/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/greg/Programs/google-cloud-sdk/completion.bash.inc' ]; then . '/home/greg/Programs/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '/home/greg/programs/google-cloud-sdk/completion.bash.inc' ]; then . '/home/greg/programs/google-cloud-sdk/completion.bash.inc'; fi
+. "$HOME/.cargo/env"
