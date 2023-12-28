@@ -1,0 +1,56 @@
+live_config_reload = true
+
+[cursor]
+unfocused_hollow = true
+
+[cursor.style]
+blinking = "on"
+shape = "Block"
+
+[font]
+size = 11.5
+
+[font.bold]
+family = "JetBrains Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrains Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrains Mono"
+style = "Italic"
+
+[font.normal]
+family = "JetBrains Mono"
+style = "Regular"
+
+# [font.search.bar]
+# background = "#ffffff"
+# foreground = "#1d1f21"
+
+# [font.search.focused_match]
+# background = "CellForeground"
+# foreground = "CellBackground"
+
+# [font.search.matches]
+# background = "#ffffff"
+# foreground = "#ffffff"
+
+[mouse.launcher]
+args = []
+program = "xdg-open"
+
+[shell]
+args = ["--login"]
+program = "/opt/homebrew/bin/bash"
+
+[window]
+decorations = "full"
+dynamic_title = true
+opacity = 0.85
+
+[window.dimensions]
+columns = 152
+lines = 38

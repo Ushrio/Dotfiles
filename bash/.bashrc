@@ -68,18 +68,13 @@ shell="${thisShell##*/}"
 # Set window title for terminals to cwd
 title='\[\e]0;$shell - \w\a\]'
 
-# run .xinitrc at startup
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec startx
-fi
-
 # Export a custom status line for bash as well as set window title for Alacritty
 export PS1=" \W \[\e[00;32m\]\$(git_branch)\[\e[00m\]λ "
 
 # set custom PATH variables
 export JAVA_HOME="/usr/bin/java"
 export EB_HOME="$HOME/.ebcli-virtual-env"
-PATH="$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:$EB_HOME/executables:$PATH"
+PATH="$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/opt/homebrew/bin:$EB_HOME/executables:$PATH"
 
 # Set up default editors
 export EDITOR="emacsclient -t"
@@ -90,3 +85,7 @@ if [ -f '/home/greg/Programs/google-cloud-sdk/path.bash.inc' ]; then . '/home/gr
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/greg/Programs/google-cloud-sdk/completion.bash.inc' ]; then . '/home/greg/Programs/google-cloud-sdk/completion.bash.inc'; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
